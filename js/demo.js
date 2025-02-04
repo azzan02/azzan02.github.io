@@ -40,6 +40,40 @@ Version: 1.0
 	function getWindowHeight() {
 		return Math.max( $(window).height(), window.innerHeight);
 	}
+	
+	document.addEventListener("DOMContentLoaded", function () {
+		// Filtering projects based on categories
+		let filterButtons = document.querySelectorAll("#filter-button li");
+		let projectBoxes = document.querySelectorAll(".project-box");
+	
+		filterButtons.forEach(button => {
+			button.addEventListener("click", function () {
+				let filterValue = this.getAttribute("data-filter");
+	
+				// Remove 'current' class from all buttons and add to the clicked one
+				filterButtons.forEach(btn => btn.classList.remove("current"));
+				this.classList.add("current");
+	
+				// Show/Hide project boxes based on filter
+				projectBoxes.forEach(box => {
+					if (filterValue === "*" || box.classList.contains(filterValue.substring(1))) {
+						box.style.display = "block"; // Show matching projects
+					} else {
+						box.style.display = "none"; // Hide non-matching projects
+					}
+				});
+			});
+		});
+	
+		// Ensure all projects are visible on page load
+		document.querySelector("[data-filter='*']").click();
+	
+		// Fancybox functionality (if used)
+		if (typeof Fancybox !== "undefined") {
+			Fancybox.bind("[data-fancybox]", {});
+		}
+	});
+	
 
 	//BEGIN DOCUMENT.READY FUNCTION
 	jQuery(document).ready(function($) {
