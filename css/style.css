@@ -89,6 +89,59 @@ textarea {
 	font-weight: 300;
 }
 
+/* General styles for project boxes */
+.project-box {
+    background: #f8f9fa;  /* Light background */
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Project box hover effect */
+.project-box:hover {
+    background: #e9ecef;
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for project titles */
+.project-box .title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Styling for project category */
+.project-box .sub-title {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Link styles */
+.project-box a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 10px;
+}
+
+/* Link hover effect */
+.project-box a:hover {
+    color: #007bff;  /* Bootstrap blue */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .project-box {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
 
 /* ==================================================================
 	4.0 Typography
